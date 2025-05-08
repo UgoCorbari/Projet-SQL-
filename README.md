@@ -1,4 +1,5 @@
 # Projet-SQL-
+
 Alta Vista Drones — Système de gestion des commandes clients
 
 📍 Contexte et objectif
@@ -29,6 +30,7 @@ Commandes_Prestations : table associative entre commandes et prestations, avec l
 Factures : liées aux commandes, elles récapitulent le total HT, la TVA et le total TTC, avec un suivi du paiement.
 Paiements : associés à une facture, ils précisent le montant, la date et le moyen de paiement.
 Historique_Commandes : journalisation des changements de statut d’une commande (utile pour la gestion de projet ou le SAV).
+
 🗺️ Diagramme Entité-Relation
 
 erDiagram
@@ -38,6 +40,7 @@ erDiagram
     Commandes ||--|| Factures : genere
     Factures ||--o{ Paiements : reglee_par
     Commandes ||--o{ Historique_Commandes : historise
+    
 ⚙️ Choix de conception
 
 Tables bien normalisées : Chaque entité ou relation a sa propre table, garantissant un modèle de données clair et extensible.
@@ -46,11 +49,13 @@ Intégrité référentielle assurée via FOREIGN KEY.
 Contraintes CHECK sur les statuts pour éviter les erreurs de saisie.
 Table d’historique séparée : Meilleure traçabilité des processus internes, utile pour l’amélioration continue et la transparence vis-à-vis du client.
 Flexibilité : La table de liaison Commandes_Prestations autorise plusieurs prestations par commande et permet d’appliquer des remises.
+
 🚀 Optimisations possibles
 
 Création d'index sur les champs de recherche fréquente (ex : client_id, commande_id, statut_paiement).
 Mise en place future de vues SQL pour simplifier les rapports financiers (total mensuel par client, top prestations…).
 Possibilité d’ajouter des triggers pour mettre à jour automatiquement les montants des factures à chaque ajout de prestation.
+
 ⛔ Limitations actuelles
 
 Calculs des totaux (total_ht, total_ttc) à faire manuellement ou via une requête externe, non automatisés.
