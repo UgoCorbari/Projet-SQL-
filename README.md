@@ -4,7 +4,7 @@ Alta Vista Drones — Système de gestion des commandes clients
 
 📍 Contexte et objectif
 
-Alta Vista Drones est une entreprise spécialisée dans la production audiovisuelle par drone, principalement à destination du secteur immobilier. Les services incluent des prises de vue aériennes, le montage vidéo, les visites virtuelles et autres prestations de valorisation de biens.
+Alta Vista Drones est une entreprise spécialisée dans la production audiovisuelle par drone, principalement à destination du secteur immobilier. Les services incluent des prises de vue aériennes, le montage vidéo, la possibilité pour l'agent immobilier de présenter son bien et autres prestations de valorisation de biens.
 
 Ce projet a pour but de concevoir une base de données relationnelle qui facilite le suivi complet de l'activité commerciale, depuis l'acquisition du client jusqu’au paiement de la facture, en passant par la commande et la production.
 
