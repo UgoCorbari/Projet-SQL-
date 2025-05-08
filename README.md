@@ -33,13 +33,8 @@ Historique_Commandes : journalisation des changements de statut d’une commande
 
 🗺️ Diagramme Entité-Relation
 
-erDiagram
-    Clients ||--o{ Commandes : passe
-    Commandes ||--|{ Commandes_Prestations : contient
-    Prestations ||--|{ Commandes_Prestations : est_dans
-    Commandes ||--|| Factures : genere
-    Factures ||--o{ Paiements : reglee_par
-    Commandes ||--o{ Historique_Commandes : historise
+![Diagramme Entité-Relation](./er_diagram.png)
+
     
 ⚙️ Choix de conception
 
