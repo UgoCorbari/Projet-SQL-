@@ -1,0 +1,9 @@
+﻿commande_id;client_id;date_commande;statut;secteur
+1;1;01/05/2025;en attente;immobilier
+2;2;03/05/2025;en cours;concessions
+3;3;04/05/2025;terminée;Hotels
+4;1;06/05/2025;en attente;Restaurants
+5;4;07/05/2025;en cours;Spa
+6;5;08/05/2025;terminée;immobilier
+7;3;09/05/2025;en attente;Autres
+8;1;10/05/2025;en cours;Hotels

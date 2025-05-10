@@ -1,0 +1,7 @@
+﻿prestation_id;nom;description;prix_unitaireTTC;duree_estimee
+1;Vidéo Drone + montage;Prise de vue aérienne et montage standard;300.0;60.0
+2;Vidéo caméra + montage;Tournage caméra sol + montage professionnel;250.0;45.0
+3;Vidéo Premium + montage;Tournage multi-angle + drone + caméra + montage haut de gamme;500.0;90.0
+4;Vidéo Drone + montage + micro;Prise de vue aérienne et montage standard avec captation audio;350.0;75.0
+5;Vidéo caméra + montage + micro;Tournage caméra sol + montage professionnel avec captation audio;300.0;60.0
+6;Vidéo Premium + montage + micro;Tournage multi-angle + drone + caméra + montage haut de gamme avec captation audio;550.0;105.0
