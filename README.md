@@ -1,4 +1,4 @@
-🔖 Nom du projet
+🔖 Projet SQL
 Alta Vista Drones — Système de gestion des commandes clients
 
 📍 Contexte et objectif
