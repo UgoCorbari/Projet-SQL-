@@ -1,5 +1,6 @@
  -- Passer en mode CSV et afficher les entêtes
 .mode csv
+.separator ';'
 .headers on
 
 -- Importation des données depuis des fichiers CSV (adapté pour SQLite)
