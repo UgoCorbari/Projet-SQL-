@@ -58,6 +58,7 @@ Ajout d’un module de notifications (emails automatisés pour factures en retar
 Préparation à une intégration avec une interface front-end (ex : dashboard web)
 
 ⛔ Limitations actuelles
+
 Calculs total_ht et total_ttc générés par script, mais pas mis à jour dynamiquement
 Aucun suivi de la ressource interne (technicien, pilote de drone…)
 Aucun formulaire d’entrée utilisateur (nécessite des scripts manuels pour alimenter la base)
