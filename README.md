@@ -39,7 +39,7 @@ Historique_Commandes :	Journalisation des changements de statut d’une commande
 
 🗺️ Diagramme Entité-Relation (ERD)
 
-
+![Diagramme ER](er_diagram.png)
 
 ⚙️ Choix de conception
 
