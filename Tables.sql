@@ -18,12 +18,13 @@ CREATE TABLE Prestations (
     durée_estimee INTEGER -- En minutes
 );
 
--- Table des commandes clients
+-- Table des commandes clients (avec colonne secteur ajoutée)
 CREATE TABLE Commandes (
     commande_id INTEGER PRIMARY KEY AUTOINCREMENT,
     client_id INTEGER NOT NULL,
     date_commande DATE NOT NULL,
     statut TEXT CHECK (statut IN ('en attente', 'en cours', 'terminée')),
+    secteur TEXT CHECK (secteur IN ('immobilier', 'concessions', 'Hotels', 'Spa', 'Restaurants', 'Autres')),
     FOREIGN KEY (client_id) REFERENCES Clients(client_id)
 );
 
@@ -38,7 +39,7 @@ CREATE TABLE Commandes_Prestations (
     FOREIGN KEY (prestation_id) REFERENCES Prestations(prestation_id)
 );
 
--- Table des factures
+-- Création de la table Factures
 CREATE TABLE Factures (
     facture_id INTEGER PRIMARY KEY AUTOINCREMENT,
     commande_id INTEGER NOT NULL,
@@ -50,7 +51,18 @@ CREATE TABLE Factures (
     FOREIGN KEY (commande_id) REFERENCES Commandes(commande_id)
 );
 
--- Table des paiements liés à une facture
+-- Création de la table Historique_Commandes
+CREATE TABLE Historique_Commandes (
+    historique_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    commande_id INTEGER NOT NULL,
+    ancien_statut TEXT,
+    nouveau_statut TEXT NOT NULL,
+    date_changement DATETIME DEFAULT CURRENT_TIMESTAMP,
+    modifié_par TEXT,
+    FOREIGN KEY (commande_id) REFERENCES Commandes(commande_id)
+);
+
+-- Création de la table Paiements
 CREATE TABLE Paiements (
     paiement_id INTEGER PRIMARY KEY AUTOINCREMENT,
     facture_id INTEGER NOT NULL,
@@ -59,13 +71,3 @@ CREATE TABLE Paiements (
     moyen_paiement TEXT,
     FOREIGN KEY (facture_id) REFERENCES Factures(facture_id)
 );
-
--- Historique des changements de statuts de commande
-CREATE TABLE Historique_Commandes (
-    historique_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    commande_id INTEGER NOT NULL,
-    ancien_statut TEXT CHECK (ancien_statut IN ('en attente', 'en cours', 'terminée')),
-    nouveau_statut TEXT CHECK (nouveau_statut IN ('en attente', 'en cours', 'terminée')),
-    date_changement DATETIME DEFAULT CURRENT_TIMESTAMP,
-    modifié_par TEXT,
-    FOREIGN KEY (commande_id) REFERENCES Commandes(commande_id)
