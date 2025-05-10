@@ -1,9 +1,0 @@
-commande_id,client_id,date_commande,statut,secteur
-1,1,2025-05-01,en attente,immobilier
-2,2,2025-05-03,en cours,concessions
-3,3,2025-05-04,terminée,Hotels
-4,1,2025-05-06,en attente,Restaurants
-5,4,2025-05-07,en cours,Spa
-6,5,2025-05-08,terminée,immobilier
-7,3,2025-05-09,en attente,Autres
-8,1,2025-05-10,en cours,Hotels
