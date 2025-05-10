@@ -4,10 +4,12 @@ Alta Vista Drones — Système de gestion des commandes clients
 📍 Contexte et objectif
 
 Alta Vista Drones est une entreprise spécialisée dans la valorisation audiovisuelle de biens immobiliers à l’aide de drones. Elle propose des prestations telles que :
-  Prises de vue aériennes (photo/vidéo)
-  Vidéos montées avec habillage graphique
-  Présentations orales des agents
-  Services de montage express
+
+  - Prises de vue aériennes (photo/vidéo)
+  - Vidéos montées avec habillage graphique
+  - Présentations orales des agents
+  - Services de montage express
+    
 L’objectif de ce projet est de concevoir une base de données relationnelle permettant de suivre toute l'activité commerciale, du premier contact client jusqu’au paiement de la facture, en incluant la gestion des commandes, prestations, historiques et paiements.
 
 🎯 Portée fonctionnelle
