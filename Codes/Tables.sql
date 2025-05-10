@@ -76,7 +76,6 @@ CREATE TABLE Paiements (
  
 .mode csv
 .separator ';'
-.separator ,
 .headers on
 
 -- Importation des données depuis des fichiers CSV 
