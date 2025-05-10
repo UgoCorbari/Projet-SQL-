@@ -4,10 +4,10 @@
 
 -- Importation des données depuis des fichiers CSV (adapté pour SQLite)
 
-.import Codes/clients.csv Clients
-.import Codes/Prestations.csv Prestations
-.import Codes/commandes.csv Commandes
-.import Codes/commandes_prestations.csv Commandes_Prestations
+.import clients.csv Clients
+.import Prestations.csv Prestations
+.import commandes.csv Commandes
+.import commandes_prestations.csv Commandes_Prestations
 
 -- Générer les factures à partir des données existantes
 INSERT INTO Factures (commande_id, date_facture, total_ht, tva, total_ttc, statut_paiement) 
