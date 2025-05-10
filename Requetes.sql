@@ -2,7 +2,7 @@
 
 -- Insérer les données dans Clients à partir du CSV
 COPY Clients (client_id, nom, email, téléphone, adresse)
-FROM '/Users/ugocorbari/Desktop/Clients.csv' DELIMITER ',' CSV HEADER;
+FROM '/Users/ugocorbari/Desktop/clients.csv' DELIMITER ',' CSV HEADER;
 
 -- Insérer les données dans Prestations à partir du CSV
 COPY Prestations (prestation_id, nom, description, prix_unitaire, durée_estimee)
@@ -10,11 +10,11 @@ FROM '/Users/ugocorbari/Desktop/Prestations.csv' DELIMITER ',' CSV HEADER;
 
 -- Insérer les données dans Commandes à partir du CSV
 COPY Commandes (commande_id, client_id, date_commande, statut, secteur)
-FROM '/Users/ugocorbari/Desktop/Commandes.csv' DELIMITER ',' CSV HEADER;
+FROM '/Users/ugocorbari/Desktop/commandes.csv' DELIMITER ',' CSV HEADER;
 
 -- Insérer les données dans Commandes_Prestations à partir du CSV
 COPY Commandes_Prestations (commande_id, prestation_id, quantité, remise_pourcent)
-FROM '/Users/ugocorbari/Desktop/Commandes_Prestations.csv' DELIMITER ',' CSV HEADER;
+FROM '/Users/ugocorbari/Desktop/commandes_prestations.csv' DELIMITER ',' CSV HEADER;
 
 -- Insérer les données pour la table facture à partir des données des autres bases 
 INSERT INTO Factures (commande_id, date_facture, total_ht, tva, total_ttc, statut_paiement) 
