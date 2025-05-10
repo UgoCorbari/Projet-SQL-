@@ -1,22 +1,15 @@
--- 1) Insertion des données 
+ -- Passer en mode CSV et afficher les entêtes
+.mode csv
+.headers on
 
--- Insérer les données dans Clients à partir du CSV
-COPY Clients (client_id, nom, email, téléphone, adresse)
-FROM '/Users/ugocorbari/Desktop/clients.csv' DELIMITER ',' CSV HEADER;
+-- Importation des données depuis des fichiers CSV (adapté pour SQLite)
 
--- Insérer les données dans Prestations à partir du CSV
-COPY Prestations (prestation_id, nom, description, prix_unitaire, durée_estimee)
-FROM '/Users/ugocorbari/Desktop/Prestations.csv' DELIMITER ',' CSV HEADER;
+.import csv/clients.csv Clients
+.import csv/Prestations.csv Prestations
+.import csv/commandes.csv Commandes
+.import csv/commandes_prestations.csv Commandes_Prestations
 
--- Insérer les données dans Commandes à partir du CSV
-COPY Commandes (commande_id, client_id, date_commande, statut, secteur)
-FROM '/Users/ugocorbari/Desktop/commandes.csv' DELIMITER ',' CSV HEADER;
-
--- Insérer les données dans Commandes_Prestations à partir du CSV
-COPY Commandes_Prestations (commande_id, prestation_id, quantité, remise_pourcent)
-FROM '/Users/ugocorbari/Desktop/commandes_prestations.csv' DELIMITER ',' CSV HEADER;
-
--- Insérer les données pour la table facture à partir des données des autres bases 
+-- Générer les factures à partir des données existantes
 INSERT INTO Factures (commande_id, date_facture, total_ht, tva, total_ttc, statut_paiement) 
 SELECT 
     c.commande_id,
@@ -30,17 +23,19 @@ JOIN Commandes_Prestations cp ON c.commande_id = cp.commande_id
 JOIN Prestations p ON cp.prestation_id = p.prestation_id
 GROUP BY c.commande_id;
 
--- Insertion dans l'historique des commandes
-INSERT INTO Historique_Commandes (commande_id, date_commande, ancien_statut, nouveau_statut) VALUES
-(1, (SELECT date_commande FROM Commandes WHERE commande_id = 1), 'en attente', 'en cours'),
-(2, (SELECT date_commande FROM Commandes WHERE commande_id = 2), 'en cours', 'terminée');
+-- Historique des commandes (ajuste selon la structure de ta table)
+INSERT INTO Historique_Commandes (commande_id, ancien_statut, nouveau_statut)
+SELECT 1, 'en attente', 'en cours'
+UNION
+SELECT 2, 'en cours', 'terminée';
 
--- Insertion des paiements
+-- Insertion des paiements (uniquement pour les factures payées)
 INSERT INTO Paiements (facture_id, date_paiement, montant, moyen_paiement)
 SELECT 
     f.facture_id,
-    DATE(f.date_facture, '+10 days') AS date_paiement, -- Ajouter 10 jours à la date de la facture
+    DATE(f.date_facture, '+10 days') AS date_paiement,
     f.total_ttc,
     'virement'
 FROM Factures f
 WHERE f.statut_paiement = 'payée';
+
