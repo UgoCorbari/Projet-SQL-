@@ -29,13 +29,13 @@ Cette base est conçue de manière modulaire pour accueillir de futures extensio
 
 Entité	Description :
 
-Clients	:Donneurs d’ordre (particuliers ou professionnels), identifiés par un client_id
-Prestations :	Services proposés, tarifés à l’unité (prix_unitaire), avec durée estimée
-Commandes	: Groupes de prestations commandées par un client, avec un statut et un secteur
-Commandes_Prestations	: Table de liaison entre commandes et prestations, avec quantité et remise
-Factures	: Générées pour chaque commande, contenant les montants HT, TVA, TTC et le statut_paiement
-Paiements	: Associés à une facture, incluant le montant, la date et le mode de règlement
-Historique_Commandes :	Journalisation des changements de statut d’une commande (avant/après + horodatage)
+- Clients	:Donneurs d’ordre (particuliers ou professionnels), identifiés par un client_id
+- Prestations :	Services proposés, tarifés à l’unité (prix_unitaire), avec durée estimée
+- Commandes	: Groupes de prestations commandées par un client, avec un statut et un secteur
+- Commandes_Prestations	: Table de liaison entre commandes et prestations, avec quantité et remise
+- Factures	: Générées pour chaque commande, contenant les montants HT, TVA, TTC et le statut_paiement
+- Paiements	: Associés à une facture, incluant le montant, la date et le mode de règlement
+- Historique_Commandes :	Journalisation des changements de statut d’une commande (avant/après + horodatage)
 
 🗺️ Diagramme Entité-Relation (ERD)
 
