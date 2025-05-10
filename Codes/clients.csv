@@ -1,0 +1,12 @@
+clients_with_id
+client_id;nom;email;téléphone;adresse
+1;Alice Lefevre;alice.lefevre@mail.com;611223344;10 rue des Fleurs, Paris
+2;Bruno Caron;bruno.caron@mail.com;622334455;22 avenue Victor Hugo, Lyon
+3;Chloé Bernard;chloe.bernard@mail.com;633445566;5 boulevard Haussmann, Paris
+4;David Moreau;david.moreau@mail.com;644556677;18 rue du Général Leclerc, Marseille
+5;Emma Dubois;emma.dubois@mail.com;655667788;77 chemin du Lac, Annecy
+6;Félix Laurent;felix.laurent@mail.com;666778899;33 rue de la République, Bordeaux
+7;Gabrielle Noël;gabrielle.noel@mail.com;677889900;14 allée des Lilas, Lille
+8;Hugo Marchand;hugo.marchand@mail.com;688990011;55 quai de la Loire, Nantes
+9;Isabelle Fontaine;isabelle.fontaine@mail.com;699001122;88 rue Nationale, Toulouse
+10;Julien Renaud;julien.renaud@mail.com;600112233;101 rue de Metz, Strasbourg
