@@ -10,7 +10,7 @@ Alta Vista Drones est une entreprise spécialisée dans la valorisation audiovis
   - Présentations orales des agents
   - Services de montage express
     
-L’objectif de ce projet est de concevoir une base de données relationnelle permettant de suivre toute l'activité commerciale, du premier contact client jusqu’au paiement de la facture, en incluant la gestion des commandes, prestations, historiques et paiements.
+L’objectif de ce projet est de concevoir une base de données relationnelle permettant de suivre toute l'activité commerciale, du premier contact client jusqu’au paiement de la facture, en incluant la gestion des commandes, prestations, historiques et paiements. Les données incluses dans les différentes tables ont été obtennu à l'aide d'un LLM afin de préserver l'anonymat des clients de la société que je représente.
 
 🎯 Portée fonctionnelle
 
