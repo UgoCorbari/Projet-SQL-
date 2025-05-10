@@ -1,59 +1,64 @@
-# Projet-SQL-
-
+🔖 Nom du projet
 Alta Vista Drones — Système de gestion des commandes clients
 
 📍 Contexte et objectif
 
-Alta Vista Drones est une entreprise spécialisée dans la production audiovisuelle par drone, principalement à destination du secteur immobilier. Les services incluent des prises de vue aériennes, le montage vidéo, la possibilité pour l'agent immobilier de présenter son bien et autres prestations de valorisation de biens.
-
-Ce projet a pour but de concevoir une base de données relationnelle qui facilite le suivi complet de l'activité commerciale, depuis l'acquisition du client jusqu’au paiement de la facture, en passant par la commande et la production.
+Alta Vista Drones est une entreprise spécialisée dans la valorisation audiovisuelle de biens immobiliers à l’aide de drones. Elle propose des prestations telles que :
+  Prises de vue aériennes (photo/vidéo)
+  Vidéos montées avec habillage graphique
+  Présentations orales des agents
+  Services de montage express
+L’objectif de ce projet est de concevoir une base de données relationnelle permettant de suivre toute l'activité commerciale, du premier contact client jusqu’au paiement de la facture, en incluant la gestion des commandes, prestations, historiques et paiements.
 
 🎯 Portée fonctionnelle
 
-La base permet de :
+La base de données permet de :
+- Enregistrer les clients (nom, coordonnées)
+- Gérer un catalogue de prestations (services proposés)
+- Enregistrer et suivre les commandes clients, incluant plusieurs prestations par commande
+- Générer les factures automatiquement avec calcul des montants HT, TVA et TTC
+- Suivre les paiements effectués ou en attente
+- Conserver un historique des changements de statut des commandes (utile pour la traçabilité et le SAV)
+  
+Cette base est conçue de manière modulaire pour accueillir de futures extensions :
+  📅 planification de rendez-vous,
+  📊 indicateurs de rentabilité.
 
-Enregistrer les informations des clients ;
-Gérer un catalogue de prestations proposées ;
-Suivre les commandes de clients, incluant plusieurs prestations ;
-Générer des factures, calculer les montants HT/TTC et suivre les paiements ;
-Conserver un historique des changements de statuts des commandes pour traçabilité.
-Cette base est pensée pour permettre une extension future vers des modules comme la planification de rendez-vous, la gestion des équipes ou l’analyse de rentabilité par prestation.
 
-🧩 Modèle conceptuel — entités et relations
+🧩 Modèle conceptuel — Entités et relations
 
-Les entités sont :
+Entité	Description :
 
-Clients : personnes ou entreprises commandant des prestations, identifiées par un client_id.
-Prestations : catalogue des services disponibles (ex : vidéo 4K, montage express...), chacun avec un prix_unitaire et une durée_estimee.
-Commandes : regroupent les demandes d’un client à une date donnée, avec un statut (en attente, en cours, terminée).
-Commandes_Prestations : table associative entre commandes et prestations, avec la quantité et une éventuelle remise.
-Factures : liées aux commandes, elles récapitulent le total HT, la TVA et le total TTC, avec un suivi du paiement.
-Paiements : associés à une facture, ils précisent le montant, la date et le moyen de paiement.
-Historique_Commandes : journalisation des changements de statut d’une commande (utile pour la gestion de projet ou le SAV).
+Clients	:Donneurs d’ordre (particuliers ou professionnels), identifiés par un client_id
+Prestations :	Services proposés, tarifés à l’unité (prix_unitaire), avec durée estimée
+Commandes	: Groupes de prestations commandées par un client, avec un statut et un secteur
+Commandes_Prestations	: Table de liaison entre commandes et prestations, avec quantité et remise
+Factures	: Générées pour chaque commande, contenant les montants HT, TVA, TTC et le statut_paiement
+Paiements	: Associés à une facture, incluant le montant, la date et le mode de règlement
+Historique_Commandes :	Journalisation des changements de statut d’une commande (avant/après + horodatage)
 
-🗺️ Diagramme Entité-Relation
+🗺️ Diagramme Entité-Relation (ERD)
 
-![Diagramme Entité-Relation](./er_diagram.png)
- 
-    
+
+
 ⚙️ Choix de conception
 
-Tables bien normalisées : Chaque entité ou relation a sa propre table, garantissant un modèle de données clair et extensible.
-Clés étrangères et contraintes :
-Intégrité référentielle assurée via FOREIGN KEY.
-Contraintes CHECK sur les statuts pour éviter les erreurs de saisie.
-Table d’historique séparée : Meilleure traçabilité des processus internes, utile pour l’amélioration continue et la transparence vis-à-vis du client.
-Flexibilité : La table de liaison Commandes_Prestations autorise plusieurs prestations par commande et permet d’appliquer des remises.
+ - Modèle normalisé : chaque table correspond à une entité métier ou relation logique
+ - Intégrité référentielle : assurée via FOREIGN KEY
+ - Contraintes CHECK sur les statuts (commandes, factures) pour fiabilité
+ - Historique séparé : journalisation indépendante pour audit ou SAV
+ - Remises intégrées : dans la table Commandes_Prestations pour flexibilité commerciale
 
-🚀 Optimisations possibles
+🚀 Optimisations futures: 
 
-Création d'index sur les champs de recherche fréquente (ex : client_id, commande_id, statut_paiement).
-Mise en place future de vues SQL pour simplifier les rapports financiers (total mensuel par client, top prestations…).
-Possibilité d’ajouter des triggers pour mettre à jour automatiquement les montants des factures à chaque ajout de prestation.
+Création d’index sur les colonnes utilisées pour les jointures (client_id, commande_id, etc.)
+Création de vues SQL pour simplifier les requêtes analytiques (ex : chiffre d’affaires par mois ou par client)
+Mise en place de triggers pour recalcul automatique des totaux des factures
+Ajout d’un module de notifications (emails automatisés pour factures en retard)
+Préparation à une intégration avec une interface front-end (ex : dashboard web)
 
 ⛔ Limitations actuelles
-
-Calculs des totaux (total_ht, total_ttc) à faire manuellement ou via une requête externe, non automatisés.
-Aucun suivi des utilisateurs internes (collaborateurs, techniciens drone).
-Pas encore d’interface front-end pour utiliser la base via une application.
-Aucun système de notification automatique pour les paiements en retard.
+Calculs total_ht et total_ttc générés par script, mais pas mis à jour dynamiquement
+Aucun suivi de la ressource interne (technicien, pilote de drone…)
+Aucun formulaire d’entrée utilisateur (nécessite des scripts manuels pour alimenter la base)
+Pas de reporting automatisé ni de gestion de KPI (encore à implémenter)
