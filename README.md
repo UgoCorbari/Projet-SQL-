@@ -51,15 +51,15 @@ Historique_Commandes :	Journalisation des changements de statut d’une commande
 
 🚀 Optimisations futures: 
 
-Création d’index sur les colonnes utilisées pour les jointures (client_id, commande_id, etc.)
-Création de vues SQL pour simplifier les requêtes analytiques (ex : chiffre d’affaires par mois ou par client)
-Mise en place de triggers pour recalcul automatique des totaux des factures
-Ajout d’un module de notifications (emails automatisés pour factures en retard)
-Préparation à une intégration avec une interface front-end (ex : dashboard web)
+- Création d’index sur les colonnes utilisées pour les jointures (client_id, commande_id, etc.)
+- Création de vues SQL pour simplifier les requêtes analytiques (ex : chiffre d’affaires par mois ou par client)
+- Mise en place de triggers pour recalcul automatique des totaux des factures
+- Ajout d’un module de notifications (emails automatisés pour factures en retard)
+- Préparation à une intégration avec une interface front-end (ex : dashboard web)
 
 ⛔ Limitations actuelles
 
-Calculs total_ht et total_ttc générés par script, mais pas mis à jour dynamiquement
-Aucun suivi de la ressource interne (technicien, pilote de drone…)
-Aucun formulaire d’entrée utilisateur (nécessite des scripts manuels pour alimenter la base)
-Pas de reporting automatisé ni de gestion de KPI (encore à implémenter)
+- Calculs total_ht et total_ttc générés par script, mais pas mis à jour dynamiquement
+- Aucun suivi de la ressource interne (technicien, pilote de drone…)
+- Aucun formulaire d’entrée utilisateur (nécessite des scripts manuels pour alimenter la base)
+- Pas de reporting automatisé ni de gestion de KPI (encore à implémenter)
